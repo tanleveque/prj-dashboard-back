@@ -1,4 +1,4 @@
 module.exports = {
-    url: 'mongodb://localhost:27017/usersAPI'
+    url: 'mongodb://localhost:27017/Test_DB'
   };
   

@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
+var artist = require('../controllers/artist.controller');
 
-/* GET home page. */
+/* GET artists listing. */
 router.get('/', function(req, res, next) {
-  res.send('Welcome on my api_with_mongo api !' );
+  res.send('??????? ');
 });
-  
+
 module.exports = router;

@@ -1,24 +1,40 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require('express');
+const path = require('path');
+const PORT = 4000;
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 const mongoose = require('mongoose');
 const config = require('./config/database.config');
+const app = express();
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const userRouter = require('./routes/user');
+const artistRouter = require('./routes/artist');
+const artistsRouter = require('./routes/artists');
 
 //connection a la base de donnée
-mongoose.connect(config.url, {useNewUrlParser: true});
-var app = express();
+mongoose.Promise = global.Promise;
+mongoose.connect(config.url, { useNewUrlParser: true }).then(
+  () => {console.log('Database is connected') },
+  err => { console.log('Can not connect to the database'+ err)}
+);
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
 
 app.use('/', indexRouter);
+app.use('/user', userRouter);
 app.use('/users', usersRouter);
+app.use('/artist', artistRouter);
+app.use('/artists', artistsRouter);
+
+app.listen(PORT, function(){
+    console.log('Server is running on Port:',PORT);
+  });
 
 module.exports = app;
+
