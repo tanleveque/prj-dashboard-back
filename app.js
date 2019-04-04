@@ -6,17 +6,11 @@ const config = require('./config/database.config');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
-
-//test
-
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
-const userRouter = require('./routes/user');
-const artistRouter = require('./routes/artist');
-const artistsRouter = require('./routes/artists');
+const indexRouter = require('./index');
+const usersRouter = require('./users');
+const userRouter = require('./user');
+const artistRouter = require('./artist');
+const artistsRouter = require('./artists');
 
 //connection a la base de donnée
 mongoose.Promise = global.Promise;
