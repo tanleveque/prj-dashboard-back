@@ -1,12 +1,16 @@
 const express = require('express');
-const path = require('path');
+const app = express();
 const PORT = 4000;
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
 const mongoose = require('mongoose');
 const config = require('./config/database.config');
-const app = express();
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+
+//test
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
