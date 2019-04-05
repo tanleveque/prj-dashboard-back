@@ -4,13 +4,9 @@ const PORT = 4000;
 const mongoose = require('mongoose');
 const config = require('./config/database.config');
 const bodyParser = require('body-parser');
-const cors = require('cors');
+const cors = require('cors');1
 
-const indexRouter = require('./index');
-const usersRouter = require('./users');
-const userRouter = require('./user');
-const artistRouter = require('./artist');
-const artistsRouter = require('./artists');
+const artistsRouter = require('./dashboard.route');
 
 //connection a la base de donnée
 mongoose.Promise = global.Promise;
@@ -20,14 +16,10 @@ mongoose.connect(config.url, { useNewUrlParser: true }).then(
 );
 
 app.use(cors());
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-
-app.use('/', indexRouter);
-app.use('/user', userRouter);
-app.use('/users', usersRouter);
-app.use('/artist', artistRouter);
 app.use('/artists', artistsRouter);
 
 app.listen(PORT, function(){

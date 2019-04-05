@@ -14,5 +14,21 @@
     "express": "~4.16.0",
     "mongoose": "^5.4.20",
     "morgan": "~1.9.0"
-  }
+  },
+  "description": "Back end of the dashboard project by Levêque Tanneguy and Duthu Bastien",
+  "main": "app.js",
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanleveque/prj-dashboard-back.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tanleveque/prj-dashboard-back/issues"
+  },
+  "homepage": "https://github.com/tanleveque/prj-dashboard-back#readme"
 }

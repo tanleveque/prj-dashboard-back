@@ -21,7 +21,7 @@ const artistSchema = new mongoose.Schema(
   },
   
   {
-    timestamps: true
+    collection: 'Artist'
   }
 );
 
